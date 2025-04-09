@@ -1,0 +1,131 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_banner_Tayntc": {
+      "type": "Custom_Banner",
+      "settings": {
+        "banner_image": "shopify://shop_images/img2.jpg",
+        "banner_heading": "Welcome to Our Store",
+        "banner_subheading": "Discover our latest collections",
+        "banner_link": "shopify://collections/all",
+        "banner_button_text": "Shop Now"
+      }
+    },
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Browse our latest products",
+            "heading_size": "h0"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop all",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "button"
+      ],
+      "disabled": true,
+      "settings": {
+        "image_overlay_opacity": 40,
+        "image_height": "large",
+        "desktop_content_position": "bottom-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
+    "winter_collection_PCczTi": {
+      "type": "Winter_Collection",
+      "settings": {
+        "heading-text": "Winter Collection",
+        "winter-collection-image-1": "shopify://shop_images/24-Winter-HP-Collections-Fleeces_345x_1ce1e81a-de15-4b6a-8e4d-054622be71b7.webp",
+        "winter-collection-image-2": "shopify://shop_images/24-Winter-HP-Collections-BaseLayers_345x_fb8bc35b-6456-435b-9701-7e7b463fec93.webp",
+        "winter-collection-image-3": "shopify://shop_images/24-Winter-HP-Collections-WinterJackets_345x_e8b91e8e-6c90-4a98-8f12-ff1c7af3c3b8.webp",
+        "winter-collection-image-4": "shopify://shop_images/24-Winter-HP-Collections-SnowBoots_345x_dda7e979-b7d6-4eb3-b03b-45b7efb8cd9f.webp"
+      }
+    },
+    "new_arrivals_QTUV69": {
+      "type": "New_Arrivals",
+      "settings": {
+        "heading-text": "New Arrivals",
+        "products": [
+          "gardening-hand-trowel",
+          "grey-sofa",
+          "decathlon-wedze-open-the-reviews-dialog-average-rating-4-57-out-of-5-stars-wedze-fisherman-ski-beanie",
+          "cream-sofa",
+          "copper-light",
+          "clay-plant-pot",
+          "brown-throw-pillows",
+          "black-bean-bag",
+          "biodegradable-cardboard-pots",
+          "bedside-table",
+          "apple-macbook-air-laptop",
+          "apple-iphone-15-128-gb-black",
+          "antique-drawers",
+          "acer-aspire-lite-13th-gen-premium-laptop"
+        ]
+      }
+    }
+  },
+  "order": [
+    "custom_banner_Tayntc",
+    "image_banner",
+    "featured_collection",
+    "winter_collection_PCczTi",
+    "new_arrivals_QTUV69"
+  ]
+}

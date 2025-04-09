@@ -1,0 +1,103 @@
+<style>
+  .winter-collection {
+    width: 100%;
+  }
+
+  .row {
+    display: flex;
+    justify-content: center; /* Centers the row horizontally */
+    align-items: center; /* Centers the row vertically */
+    flex-wrap: wrap;
+    gap: 8px;
+    height: 100vh;
+  }
+
+  .col {
+    position: relative;
+    z-index: 3;
+    overflow: hidden; /* Ensures the hover effect stays within the image bounds */
+  }
+
+  .col img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for hover effect */
+  }
+
+  .col:hover img {
+    transform: scale(1.1); /* Zoom-in effect */
+    opacity: 0.8; /* Slight transparency on hover */
+  }
+
+  .col p {
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .opac {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+  }
+</style>
+
+<div class="winter-collection">
+  <h1>{{ section.settings['heading-text'] }}</h1>
+  <div class="row">
+    <div class="col">
+      <div class="opac"></div>
+
+      <img src="{{ section.settings.winter-collection-image-1 | img_url: '300x'  }}">
+    </div>
+    <div class="col">
+      <img src="{{ section.settings.winter-collection-image-2 | img_url: '300x'  }}">
+    </div>
+    <div class="col">
+      <img src="{{ section.settings.winter-collection-image-3 | img_url: '300x'  }}">
+    </div>
+    <div class="col">
+      <img src="{{ section.settings.winter-collection-image-4 | img_url: '300x'  }}">
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Winter Collections",
+  "settings": [
+    {
+      "type":"text",
+      "id":"heading-text",
+      "label":"heading"
+    },
+    {
+     "type": "image_picker",
+      "id": "winter-collection-image-1",
+      "label": "Image"
+    },
+    {
+     "type": "image_picker",
+      "id": "winter-collection-image-2",
+      "label": "Image"
+    },
+    {
+     "type": "image_picker",
+      "id": "winter-collection-image-3",
+      "label": "Image"
+    },
+    {
+     "type": "image_picker",
+      "id": "winter-collection-image-4",
+      "label": "Image"
+    },
+  ],
+ "presets": [
+    {
+      "name": "Winter Collections"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,11 @@
+<div class="mega-menu">
+  <div class="mega-menu__content">
+    <ul class="mega-menu__list">
+      {% for item in section.settings.mega_menu_items %}
+        <li>
+          <a href="{{ item.link_url }}" class="mega-menu__link">{{ item.link_name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

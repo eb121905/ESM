@@ -1,0 +1,129 @@
+<div class="new-arrivals">
+  <h2>{{ section.settings['heading-text'] }}</h2>
+  <div class="slider">
+    <button class="slider-button slider-button--prev" aria-label="Previous">&#10094;</button>
+    <div class="slider-wrapper">
+      <div class="slider-content">
+        {%- for product in section.settings.products -%}
+          <div class="product">
+            <img src="{{ product.featured_image | img_url: '300x' }}" alt="{{ product.title }}">
+            <p>{{ product.title }}</p>
+            <p>{{ product.price | money }}</p>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+    <button class="slider-button slider-button--next" aria-label="Next">&#10095;</button>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "New Arrivals",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading-text",
+      "label": "Heading",
+      "default": "New Arrivals"
+    },
+    {
+      "type": "product_list",
+      "id": "products",
+      "label": "Products"
+    }
+  ],
+  "presets": [
+    {
+      "name": "New Arrivals"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .new-arrivals {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slider-wrapper {
+    overflow: hidden;
+    width: 80%;
+  }
+
+  .slider-content {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .product {
+    min-width: 300px;
+    margin: 0 10px;
+    text-align: center;
+  }
+
+  .product img {
+    width: 100%;
+    border: 2px solid #000;
+    border-radius: 5px;
+  }
+
+  .slider-button {
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .slider-button--prev {
+    position: absolute;
+    left: 10px;
+  }
+
+  .slider-button--next {
+    position: absolute;
+    right: 10px;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const sliderContent = document.querySelector('.slider-content');
+    const prevButton = document.querySelector('.slider-button--prev');
+    const nextButton = document.querySelector('.slider-button--next');
+    let currentIndex = 0;
+
+    prevButton.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = sliderContent.children.length - 1;
+      }
+      updateSlider();
+    });
+
+    nextButton.addEventListener('click', () => {
+      if (currentIndex < sliderContent.children.length - 1) {
+        currentIndex++;
+      } else {
+        currentIndex = 0;
+      }
+      updateSlider();
+    });
+
+    function updateSlider() {
+      const offset = -currentIndex * sliderContent.children[0].offsetWidth;
+      sliderContent.style.transform = `translateX(${offset}px)`;
+    }
+  });
+</script>

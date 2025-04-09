@@ -1,0 +1,89 @@
+<div class="custom-banner" style="background-image: url('{{ section.settings.banner_image | img_url: 'master' }}');">
+  <div class="custom-banner__content">
+    <h1 class="custom-banner__heading">{{ section.settings.banner_heading }}</h1>
+    <p class="custom-banner__subheading">{{ section.settings.banner_subheading }}</p>
+    <a href="{{ section.settings.banner_link }}" class="custom-banner__button">
+      {{- section.settings.banner_button_text -}}
+    </a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "banner_heading",
+      "label": "Banner Heading",
+      "default": "Welcome to Our Store"
+    },
+    {
+      "type": "text",
+      "id": "banner_subheading",
+      "label": "Banner Subheading",
+      "default": "Discover our latest collections"
+    },
+    {
+      "type": "url",
+      "id": "banner_link",
+      "label": "Banner Link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "text",
+      "id": "banner_button_text",
+      "label": "Banner Button Text",
+      "default": "Shop Now"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Banner"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .custom-banner {
+    background-size: cover; /* Ensure the image covers the entire banner */
+    background-position: center; /* Center the image */
+    color: white; /* Set text color to white */
+    padding: 140px 0; /* Add some padding for better spacing */
+    text-align: center; /* Center the text */
+  }
+
+  .custom-banner__content {
+    max-width: 800px; /* Limit the width of the content */
+    margin: 0 auto; /* Center the content */
+  }
+
+  .custom-banner__heading {
+    font-size: 2.5em; /* Increase the font size of the heading */
+    margin-bottom: 20px; /* Add some space below the heading */
+    color : white;
+  }
+
+  .custom-banner__subheading {
+    font-size: 1.5em; /* Increase the font size of the subheading */
+    margin-bottom: 30px; /* Add some space below the subheading */
+  }
+
+  .custom-banner__button {
+    background-color: #000; /* Set button background color */
+    color: white; /* Set button text color */
+    padding: 10px 20px; /* Add padding to the button */
+    text-decoration: none; /* Remove underline from the link */
+    border-radius: 5px; /* Add rounded corners to the button */
+  }
+
+  .custom-banner__button:hover {
+    background-color: #333; /* Darken the button on hover */
+  }
+</style>

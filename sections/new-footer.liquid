@@ -1,0 +1,199 @@
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <!-- Contact Information -->
+    <div class="footer-section">
+      <h4>Contact Us</h4>
+      <p>{{ shop.address }}</p>
+      <p>Email: <a href="mailto:{{ shop.email }}">{{ shop.email }}</a></p>
+      <p>Phone: <a href="tel:{{ shop.phone }}">{{ shop.phone }}</a></p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        {% for block in section.blocks %}
+          {% if block.type == 'quick_link' %}
+            <li><a href="{{ block.settings.link_url }}">{{ block.settings.link_name }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- Social Media Icons -->
+    <div class="footer-section">
+      <h4>Follow Us</h4>
+      <ul class="social-icons">
+        {% for block in section.blocks %}
+          {% if block.type == 'social_link' %}
+            <li><a href="{{ block.settings.link_url }}" target="_blank"><i class="{{ block.settings.icon_class }}"></i></a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- Newsletter Subscription -->
+    <div class="footer-section">
+      <h4>Newsletter</h4>
+      <form action="/contact#contact_form" method="post" id="contact_form" accept-charset="UTF-8" class="contact-form">
+        <input type="hidden" name="form_type" value="customer">
+        <input type="hidden" name="utf8" value="✓">
+        <input type="email" name="contact[email]" placeholder="{{ section.settings.newsletter_placeholder }}" class="newsletter-input" required>
+        <button type="submit" class="newsletter-button">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* Styling for Footer */
+  .site-footer {
+    background-color: #333;
+    color: white;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-section {
+    flex: 1;
+    margin: 10px;
+  }
+
+  .footer-section h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .footer-links,
+  .social-icons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-links li,
+  .social-icons li {
+    margin-bottom: 5px;
+  }
+
+  .footer-links a,
+  .social-icons a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .footer-links a:hover,
+  .social-icons a:hover {
+    text-decoration: underline;
+  }
+
+  .social-icons a {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+
+  .newsletter-input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    width: 70%;
+  }
+
+  .newsletter-button {
+    padding: 10px;
+    border: none;
+    background-color: #555;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+  }
+
+  .newsletter-button:hover {
+    background-color: #777;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "newsletter_placeholder",
+      "label": "Newsletter Placeholder",
+      "default": "Enter your email"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "quick_link",
+      "name": "Quick Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "link_name",
+          "label": "Link Name",
+          "default": "Home"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL",
+          "default": "/"
+        },
+      
+    
+    
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default Footer",
+      "blocks": [
+        {
+          "type": "quick_link",
+          "settings": {
+            "link_name": "Home",
+            "link_url": "/"
+          }
+        },
+        {
+          "type": "quick_link",
+          "settings": {
+            "link_name": "Shop",
+            "link_url": "/collections/all"
+          }
+        },
+        {
+          "type": "quick_link",
+          "settings": {
+            "link_name": "About Us",
+            "link_url": "/pages/about-us"
+          }
+        },
+        {
+          "type": "quick_link",
+          "settings": {
+            "link_name": "Contact Us",
+            "link_url": "/pages/contact-us"
+          }
+        },
+        
+        
+      ]
+    }
+  ]
+}
+{% endschema %}

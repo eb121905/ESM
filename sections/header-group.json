@@ -1,0 +1,105 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "message_one": "Special Offer: 50% off on all items!",
+            "message_two": "Free shipping on orders over $100!",
+            "message_three": "New arrivals are here, check them out!",
+            "message_four": "Join our loyalty program for exclusive deals!",
+            "message_five": "Limited time offer: Buy one get one free!",
+            "text_alignment": "center",
+            "color_scheme": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement-bar-0"
+      ],
+      "settings": {}
+    },
+    "header": {
+      "type": "header",
+      "disabled": true,
+      "settings": {
+        "logo_position": "middle-left",
+        "menu": "main-menu",
+        "menu_type_desktop": "dropdown",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": true,
+        "color_scheme": "scheme-2",
+        "menu_color_scheme": "scheme-2",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "enable_customer_avatar": true,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "c_header_AyLyKT": {
+      "type": "c_HEADER",
+      "blocks": {
+        "link_DdaEwG": {
+          "type": "link",
+          "settings": {
+            "link_name": "Home",
+            "link_url": "/"
+          }
+        },
+        "link_dbJDX7": {
+          "type": "link",
+          "settings": {
+            "link_name": "Shop",
+            "link_url": "/collections/all"
+          }
+        },
+        "link_nHzGrU": {
+          "type": "link",
+          "settings": {
+            "link_name": "About Us",
+            "link_url": "/pages/about-us"
+          }
+        },
+        "link_3ACE4w": {
+          "type": "link",
+          "settings": {
+            "link_name": "Contact Us",
+            "link_url": "/pages/contact-us"
+          }
+        }
+      },
+      "block_order": [
+        "link_DdaEwG",
+        "link_dbJDX7",
+        "link_nHzGrU",
+        "link_3ACE4w"
+      ],
+      "settings": {
+        "logo": "shopify://shop_images/decathlon.png",
+        "search_placeholder": "Search products..."
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header",
+    "c_header_AyLyKT"
+  ]
+}
