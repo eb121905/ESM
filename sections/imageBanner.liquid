@@ -1,0 +1,218 @@
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ 'imgBanner.css' | asset_url }}">
+
+<div class="banner-container">
+  {% for block in section.blocks %}
+    <div class="banner-item">
+      {% if block.settings.display_mode == 'video' and block.settings.video != blank %}
+        <div class="video-wrapper">
+          <div class="video-overlay">
+            <video class="video" id="video-{{ block.id }}" autoplay="{{ block.settings.auto_play }}" muted>
+              <source src="{{ block.settings.video | file_url }}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+           <div class="text-container">
+            <h2 class="video-heading">
+              {% if block.settings.display_mode == 'video' %}
+                {{ block.settings.video_heading }}
+              {% else %}
+                {{ block.settings.heading }}
+              {% endif %}
+            </h2>
+            {% if block.settings.caption != blank %}
+              <p class="video-caption">
+                {{ block.settings.caption }}
+              </p>
+            {% endif %}
+            </div>
+          </div>
+          {% if block.settings.button_text and block.settings.button_url %}
+            <a href="{{ block.settings.button_url }}" class="video-button {{ block.settings.button_position }}">
+              {{ block.settings.button_text }}
+            </a>
+          {% endif %}
+           
+          <button class="play-pause-button" data-id="video-{{ block.id }}">
+            {% if block.settings.auto_play %}
+              <i class="fas fa-pause"></i>
+            {% else %}
+              <i class="fas fa-play"></i>
+            {% endif %}
+          </button>
+
+          {{
+            block.settings.video
+            | video_tag:
+              autoplay: block.settings.auto_play,
+              muted: block.settings.auto_play
+          }}
+        </div>
+      {% elsif block.settings.display_mode == 'image' and block.settings.image != blank %}
+        <div class="image-wrapper">
+          <img class="image" src="{{ block.settings.image | img_url: 'large' }}" alt="Banner Image">
+          <div class="image-overlay">
+            <h2 class="image-heading">
+              {% if block.settings.display_mode == 'video' %}
+                {{ block.settings.video_heading }}
+              {% else %}
+                {{ block.settings.heading }}
+              {% endif %}
+            </h2>
+            {% if block.settings.caption != blank %}
+              <p class="image-caption">
+                {{ block.settings.caption }}
+              </p>
+            {% endif %}
+          </div>
+          {% if block.settings.button_text and block.settings.button_url %}
+            <a href="{{ block.settings.button_url }}" class="image-button {{ block.settings.button_position }}">
+              {{ block.settings.button_text }}
+            </a>
+          {% endif %}
+          
+        </div>
+      {% elsif block.settings.display_mode == 'text' %}
+        <div class="text-only-wrapper">
+          <h2 class="text-only-heading">
+            {{ block.settings.text_heading }}
+          </h2>
+          <p class="text-only-paragraph">
+            {{ block.settings.text_paragraph }}
+          </p>
+        </div>
+      {% endif %}
+    </div>
+    
+  {% endfor %}
+</div>
+ <script src="{{ 'banner2.js' | asset_url }}" defer></script>
+{% schema %}
+{
+  "name": "Banner Block",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "banner_item",
+      "name": "Banner Item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "display_mode",
+          "label": "Display Mode",
+          "options": [
+            {
+              "value": "video",
+              "label": "Video"
+            },
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "text",
+              "label": "Text"
+            }
+            
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video File Picker"
+        },
+        {
+          "type": "checkbox",
+          "id": "auto_play",
+          "label": "Auto Play",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Your Image Heading Here"
+        },
+        {
+          "type": "text",
+          "id": "video_heading",
+          "label": "Video Heading",
+          "default": "Your Video Heading Here"
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Caption",
+          "default": "Your Caption Here"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button URL"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Click Here"
+        },
+        {
+          "type": "select",
+          "id": "button_position",
+          "label": "Button Position",
+          "options": [
+            {
+              "value": "top-left",
+              "label": "Top Left"
+            },
+            {
+              "value": "top-right",
+              "label": "Top Right"
+            },
+            {
+              "value": "bottom-left",
+              "label": "Bottom Left"
+            },
+            {
+              "value": "bottom-right",
+              "label": "Bottom Right"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            }
+          ],
+          "default": "bottom-right"
+        },
+        {
+          "type": "text",
+          "id": "text_heading",
+          "label": "Text Heading",
+          "default": "Your Text Heading Here",
+          "info": "Only used when 'Text' is selected as the display mode."
+        },
+        {
+          "type": "textarea",
+          "id": "text_paragraph",
+          "label": "Text Paragraph",
+          "default": "Your paragraph text goes here. You can write a detailed description or any content you want to display.",
+          "info": "Only used when 'Text' is selected as the display mode."
+        }
+      ],
+      "limit": 4
+    }
+    
+  ],
+  "presets": [
+    {
+      "name": "Banner Block"
+    }
+  ]
+}
+{% endschema %}
