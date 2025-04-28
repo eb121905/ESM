@@ -450,6 +450,36 @@
         "name": "metaobject_reference",
         "category": "REFERENCE"
       }
+    },
+    {
+      "key": "heading",
+      "namespace": "custom",
+      "name": "Heading",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "rkcolor",
+      "namespace": "custom",
+      "name": "rkcolor",
+      "description": "",
+      "type": {
+        "name": "color",
+        "category": "COLOR"
+      }
+    },
+    {
+      "key": "mybrand",
+      "namespace": "custom",
+      "name": "mybrand",
+      "description": "brand",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
     }
   ],
   "variant": [],

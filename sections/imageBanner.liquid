@@ -7,11 +7,14 @@
     <div class="banner-item">
       {% if block.settings.display_mode == 'video' and block.settings.video != blank %}
         <div class="video-wrapper">
+          
           <div class="video-overlay">
-            <video class="video" id="video-{{ block.id }}" autoplay="{{ block.settings.auto_play }}" muted>
-              <source src="{{ block.settings.video | file_url }}" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
+            <a href="{{ block.settings.video_link_url }}" class="video-link">
+              <video class="video" autoplay="{{ block.settings.auto_play }}" muted loop>
+                <source src="{{ block.settings.video | file_url }}" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </a>
            <div class="text-container">
             <h2 class="video-heading">
               {% if block.settings.display_mode == 'video' %}
@@ -50,7 +53,14 @@
         </div>
       {% elsif block.settings.display_mode == 'image' and block.settings.image != blank %}
         <div class="image-wrapper">
-          <img class="image" src="{{ block.settings.image | img_url: 'large' }}" alt="Banner Image">
+          {% if block.settings.image_link_url != blank %}
+            <a href="{{ block.settings.image_link_url }}" class="image-link">
+              <img class="image" src="{{ block.settings.image | img_url: 'large' }}" alt="Banner Image">
+            </a>
+          {% else %}
+            <img class="image" src="{{ block.settings.image | img_url: 'large' }}" alt="Banner Image">
+          {% endif %}
+          
           <div class="image-overlay">
             <h2 class="image-heading">
               {% if block.settings.display_mode == 'video' %}
@@ -121,6 +131,18 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "image_link_url",
+          "label": "Image Link URL",
+          "info": "Optional: Add a URL to make the image clickable."
+        },
+        {
+          "type": "url",
+          "id": "video_link_url",
+          "label": "Video Link URL",
+          "info": "Optional: Add a URL to make the video clickable."
         },
         {
           "type": "video",
